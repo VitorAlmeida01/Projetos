@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculadora Financeira</h1>
+
+    <label>Nome do produto 1</label>
+
+    <label>Nome do produto 2</label>
+
+
+    <label>Numero de vezes que uma prateleira atinge 50% dentro de uma semana</label>
+    <input type="number" id="inpPrat">
+
+    <label>Tempo decorrido para chegar em 50% (em minutos)</label>
+    <input type="number" id="inpTempo">
+
+    <label>Taxa de reposiçao</label>
+    <input type="number" id="inpRep">
+
+    <label>Preco do produto</label>
+    <input type="number" id="inpPreco">
+
+    <button onclick="calcularLucro()">Calcular lucro</button>
+
+    <div id="textField"></div>
+    
+</body>
+</html>
+
+<script>
+
+    function calcularLucro(){
+        var porcentagemPrat = inpPrat.value
+        var tempo= inpTempo.value
+        var taxaRep = inpRep.value     
+        var preco= inpPreco.value
+
+        textField.innerHTML = `Sua empresa teria um lucro de X% ao efetuar a troca do PRODUTO A para outro corredor`
+
+
+
+
+
+
+    }
+
+</script>
