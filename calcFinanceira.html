@@ -6,26 +6,44 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- Teste branch2 -->
+    <!-- Teste branch -->
 
     <h1>Calculadora Financeira</h1>
 
+    <!-- Produto 1 -->
     <label>Nome do produto 1</label>
+    <input type="text" id="inpProduto1">
 
+    <label>Numero de vezes que uma prateleira atinge 50% dentro de uma semana(produto1)</label>
+    <input type="number" id="inpPrat1">
+    
+    <label>Preco do produto 1</label>
+    <input type="number" id="inpPreco1">
+
+    <label>Tempo decorrido para chegar em 50% (em minutos) produto 1</label>
+    <input type="number" id="inpTempo1">
+
+    <label>Taxa de reposiçao produto 1</label>
+    <input type="number" id="inpRep1">
+    
+    <!-- --------------------------------------------------- -->
+
+    <!-- Produto 2 -->
     <label>Nome do produto 2</label>
+    <input type="text" id="inpProduto2">
 
+    <label>Numero de vezes que uma prateleira atinge 50% dentro de uma semana (produto2)</label>
+    <input type="number" id="inpPrat2">
 
-    <label>Numero de vezes que uma prateleira atinge 50% dentro de uma semana</label>
-    <input type="number" id="inpPrat">
+    <label>Preco do produto 2</label>
+    <input type="number" id="inpPreco2">
 
-    <label>Tempo decorrido para chegar em 50% (em minutos)</label>
-    <input type="number" id="inpTempo">
+    <label>Tempo decorrido para chegar em 50% (em minutos) produto 2</label>
+    <input type="number" id="inpTempo2">
 
-    <label>Taxa de reposiçao</label>
-    <input type="number" id="inpRep">
+    <label>Taxa de reposiçao produto 2</label>
+    <input type="number" id="inpRep2">
 
-    <label>Preco do produto</label>
-    <input type="number" id="inpPreco">
 
     <button onclick="calcularLucro()">Calcular lucro</button>
 
@@ -37,12 +55,34 @@
 <script>
 
     function calcularLucro(){
-        var porcentagemPrat = inpPrat.value
-        var tempo= inpTempo.value
-        var taxaRep = inpRep.value     
-        var preco= inpPreco.value
+        var  produto1 = Number(produto1.value)
+        var produto2 = Number(produto2.value)
+        var numPrat1 = inpPrat1.value
+        var numPrat2 = inpPrat2.value
+        var preco1 = Number(inpPreco1.value)
+        var preco2 = Number(inpPreco2.value)
+        var tempo1 = Number(inpTempo1.value)
+        var tempo2 = Number(inpTempo2.value)
+        var taxaRep = Number(inpRep1.value)
+        var taxaRep = Number(inpRep2.value)
 
-        textField.innerHTML = `Sua empresa teria um lucro de X% ao efetuar a troca do PRODUTO A para outro corredor`
+        var compararPorc = 0
+
+        var produtosVendidos1 = numPrat1 * preco1
+
+        var produtosVendidos2 = numPrat2 * preco2
+
+        var lucro1 = produtosVendidos1 * preco1
+
+        var lucro2 = produtosVendidos2 * preco2
+
+        var eficiencia1 = (produtosVendidos1 / tempo1) * 100
+
+        var eficiencia2 = (produtosVendidos2 / tempo2) * 100
+
+
+
+        textField.innerHTML = `Sua empresa obteu um lucro de ${lucro1}% ao efetuar a venda do ${produto1}`
 
 
 
