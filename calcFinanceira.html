@@ -1,94 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <!-- Teste branch -->
 
     <h1>Calculadora Financeira</h1>
 
     <!-- Produto 1 -->
+    <h2>Produto 1</h2>
     <label>Nome do produto 1</label>
-    <input type="text" id="inpProduto1">
+    <input type="text" id="inpProduto1"><br><br>
+
+    <label>Quantidade em uma prateleira</label>
+    <input type="number" id="inpQtd1"><br><br>
 
     <label>Numero de vezes que uma prateleira atinge 50% dentro de uma semana(produto1)</label>
-    <input type="number" id="inpPrat1">
-    
+    <input type="number" id="inpPrat1"><br><br>
+
     <label>Preco do produto 1</label>
-    <input type="number" id="inpPreco1">
+    <input type="number" id="inpPreco1"><br><br>
 
-    <label>Tempo decorrido para chegar em 50% (em minutos) produto 1</label>
-    <input type="number" id="inpTempo1">
+    <label>Tempo decorrido para chegar em 50% (em horas) produto 1</label>
+    <input type="number" id="inpTempo1"><br><br>
 
-    <label>Taxa de reposiçao produto 1</label>
-    <input type="number" id="inpRep1">
-    
+    <label>Tempo para reposiçao produto 2</label>
+    <input type="number" id="inpRep1"><br><br>
+
     <!-- --------------------------------------------------- -->
 
     <!-- Produto 2 -->
+    <h2>Produto 2</h2>
     <label>Nome do produto 2</label>
-    <input type="text" id="inpProduto2">
+    <input type="text" id="inpProduto2"><br><br>
+
+    <label>Quantidade em uma prateleira</label>
+    <input type="number" id="inpQtd2"><br><br>
 
     <label>Numero de vezes que uma prateleira atinge 50% dentro de uma semana (produto2)</label>
-    <input type="number" id="inpPrat2">
+    <input type="number" id="inpPrat2"><br><br>
 
     <label>Preco do produto 2</label>
-    <input type="number" id="inpPreco2">
+    <input type="number" id="inpPreco2"><br><br>
 
-    <label>Tempo decorrido para chegar em 50% (em minutos) produto 2</label>
-    <input type="number" id="inpTempo2">
+    <label>Tempo decorrido para chegar em 50% (em horas) produto 2</label>
+    <input type="number" id="inpTempo2"><br><br>
 
-    <label>Taxa de reposiçao produto 2</label>
-    <input type="number" id="inpRep2">
+    <label>Tempo para reposiçao produto 2</label>
+    <input type="number" id="inpRep2"><br><br>
 
 
     <button onclick="calcularLucro()">Calcular lucro</button>
 
     <div id="textField"></div>
-    
+
 </body>
+
 </html>
 
 <script>
 
-    function calcularLucro(){
-        var  produto1 = Number(produto1.value)
-        var produto2 = Number(produto2.value)
-        var numPrat1 = inpPrat1.value
-        var numPrat2 = inpPrat2.value
+    // 10 - chegou em 50% em uma semana
+    // 100 - produtos em uma prateleira
+    // 50 - preço do produto
+    // 120 - tempo para chegar em 50%
+
+    // (100 / 2) * 10 = 500 produtos movimentados na semana
+    // 500 * 0.9 = 450
+    // 450 
+
+    function calcularLucro() {
+        var nomeProduto1 = inpProduto1.value
+        var nomeProduto2 = inpProduto2.value
+
+        var qtdProd1 = Number(inpQtd1.value)
+        var qtdProd2 = Number(inpQtd2.value)
+
+        var numPrat1 = Number(inpPrat1.value)
+        var numPrat2 = Number(inpPrat2.value)
+
         var preco1 = Number(inpPreco1.value)
         var preco2 = Number(inpPreco2.value)
+
         var tempo1 = Number(inpTempo1.value)
         var tempo2 = Number(inpTempo2.value)
-        var taxaRep = Number(inpRep1.value)
-        var taxaRep = Number(inpRep2.value)
 
-        var compararPorc = 0
+        var taxaRep1 = Number(inpRep1.value)
+        var taxaRep2 = Number(inpRep2.value)
 
-        var produtosVendidos1 = numPrat1 * preco1
+        var produtoMov1 = (qtdProd1 / 2) * numPrat1
+        var valorVendido1 = produtoMov1 * 0.9 // 0.9 é a quantidade de produtos que são vendidos em média, quando são retirados da prateleira
 
-        var produtosVendidos2 = numPrat2 * preco2
+        var produtoMov2 = (qtdProd2 / 2) * numPrat2
+        var valorVendido2 = produtoMov2 * 0.9 // 0.9 é a quantidade de produtos que são vendidos em média, quando são retirados da prateleira
 
-        var lucro1 = produtosVendidos1 * preco1
+        if (tempo1 > tempo2) { // 10 > 6
 
-        var lucro2 = produtosVendidos2 * preco2
+            if (tempo1 < (tempo2 * 2)) {
+                textField.innerHTML = `Os produtos ${nomeProduto1} e ${nomeProduto2} estão bem localizados.`
+            } else {
+                {
+                    textField.innerHTML = `Sua empresa vendeu R$${valorVendido1} ao efetuar a venda de ${qtdProd1} unidade(s) de ${nomeProduto1}, que demorou ${taxaRep1} horas para ser reposto na prateleira, que chegou a capacidade de 50%, ${qtdProd1} vez(es) na semana.
+                    Já o ${nomeProduto2} vendeu ${qtdProd2} totalizando R$${valorVendido2} em média.
+                    
+                    Para aumentar seu lucro na venda de ${nomeProduto1}, podemos avaliar sua disposição de mercadorias. Nos encaminhe um e-mail para ver a melhor alternativa `
+                }
+            }
 
-        var eficiencia1 = (produtosVendidos1 / tempo1) * 100
+            if (tempo2 > tempo1) {
 
-        var eficiencia2 = (produtosVendidos2 / tempo2) * 100
-
-
-
-        textField.innerHTML = `Sua empresa obteu um lucro de ${lucro1}% ao efetuar a venda do ${produto1}`
-
-
-
-
-
-
+                if (tempo2 < (tempo1 * 2)) {
+                    textField.innerHTML = `Os produtos ${nomeProduto1} e ${nomeProduto2} estão bem localizados.`
+                } else {
+                    {
+                        textField.innerHTML = `Sua empresa vendeu R$${valorVendido2} ao efetuar a venda de ${qtdProd2} unidade(s) de ${nomeProduto2}, que demorou ${taxaRep2} horas para ser reposto na prateleira, que chegou a capacidade de 50%, ${qtdProd2} vez(es) na semana.
+                        Já o ${nomeProduto1} vendeu ${qtdProd1} totalizando R$${valorVendido1} em média.
+                        
+                        Para aumentar seu lucro na venda de ${nomeProduto2}, podemos avaliar sua disposição de mercadorias. Nos encaminhe um e-mail para ver a melhor alternativa `
+                    }
+                }
+            }
+        }
     }
+
 
 </script>

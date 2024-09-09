@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Financeira</title>
+</head>
+
+<body>
+  <h1>Calcule seus resultados</h1>
+
+  <label>Insira a quantidade total de prateleiras:</label>
+  <input type="number" id="inpTotalPrateleira">
+
+  <label>Informe a quantidade de prateleiras disponíveis para aluguel:</label>
+  <input type="number" id="inpPrateleiraDisponivel">
+
+  <label>Informe o ticket médio de sua loja (preço médio entre as compras de seus clientes):</label>
+  <input type="number" id="inpTicketMedio">
+
+  <label>Informe o valor do aluguel de cada prateleira atualmente:</label>
+  <input type="number" id="inpValorPrateleira">
+
+  <label>Você conhece os pontos frios e quentes de sua loja? (sim ou não):</label>
+  <input type="text" id="inpPontos">
+
+  <label>Você possui um layout estratégico em sua loja? (sim ou não):</label>
+  <input type="text" id="inpLayout">
+
+  <button onclick="calcular()">calcular</button>
+</body>
+
+</html>
+
+<script>
+
+  function calcular() {
+    var totalPrateleira = Number(inpTotalPrateleira.value)
+    var prateleiraDisponivel = Number(inpPrateleiraDisponivel.value) //50
+    var ticketMedio = Number(inpTicketMedio.value) // 500
+    var valorPrateleira = Number(inpValorPrateleira.value)
+    var pontos = inpPontos.value
+    var layout = inpLayout.value
+
+    var faturamentoTotal = ticketMedio * prateleiraDisponivel
+    var porcentagemPrateleira = prateleiraDisponivel / totalPrateleira * 100
+
+
+
+
+
+
+
+  }
+
+</script>

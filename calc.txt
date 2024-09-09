@@ -1,0 +1,1 @@
+Fazer a comparação de uma prateleira com a outra com as métricas de quantidade de vezes que o produto atinge 50%, preço, tempo que demorou para chegar a 50% 
