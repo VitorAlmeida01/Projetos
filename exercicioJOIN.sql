@@ -9,6 +9,8 @@ CREATE TABLE atleta (
     qtdMedalha INT
 );
 
+-- opa
+
 INSERT INTO atleta VALUES
 	(DEFAULT, 'Vitor Almeida', 'Futebol', 5),
     (DEFAULT, 'Felipe Miguel', 'Futebol', 1),
