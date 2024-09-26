@@ -17,6 +17,7 @@
     const buttonE = document.getElementById("btnNumE");
     const buttonF = document.getElementById("btnNumF");
 
+
     const numero01 = document.getElementById('btnNum1.2')
     const numero02 = document.getElementById('btnNum2.2')
     const numero03 = document.getElementById('btnNum3.2')
@@ -34,6 +35,8 @@
     const buttonE2 = document.getElementById("btnNumE.2");
     const buttonF2 = document.getElementById("btnNumF.2");
     
+    const buttons = document.querySelectorAll('.numero1') 
+    const buttons2 = document.querySelectorAll('.numero2') 
 
     let selectUser1 = document.getElementById('sltUser1')
     let selectUser2 = document.getElementById('sltUser2')
@@ -51,135 +54,26 @@
         disableButtons2(selectUser2.value);
     });
 
-
-    numero1.addEventListener('click', () => {
-        inputNumber.value += numero1.value
+    // Teste fazendo a logica com FOR
+    // for(let i=0; i<buttons.length; i++){
+    //     buttons[i].addEventListener('click', ()=>{
+    //         console.log('a')
+    //         inputNumber.value += buttons[i].value
+    //     })
+    // }
+    buttons.forEach((button, i)=> {
+        button.addEventListener('click', ()=>{
+                    console.log(i)
+                    inputNumber.value += button.value
+                })
     })
 
-    numero2.addEventListener('click', () => {
-        inputNumber.value += numero2.value
+    buttons2.forEach((button, i)=> {
+        button.addEventListener('click', ()=>{
+                    console.log(i)
+                    inputNumber2.value += button.value
+                })
     })
-
-    numero3.addEventListener('click', () => {
-        inputNumber.value += numero3.value
-    })
-
-    numero4.addEventListener('click', () => {
-        inputNumber.value += numero4.value
-    })
-
-    numero5.addEventListener('click', () => {
-        inputNumber.value += numero5.value
-    })
-
-    numero6.addEventListener('click', () => {
-        inputNumber.value += numero6.value
-    })
-
-    numero7.addEventListener('click', () => {
-        inputNumber.value += numero7.value
-    })
-
-    numero8.addEventListener('click', () => {
-        inputNumber.value += numero8.value
-    })
-
-    numero9.addEventListener('click', () => {
-        inputNumber.value += numero9.value
-    })
-
-    numero0.addEventListener('click', () => {
-        inputNumber.value += numero0.value
-    })
-// Botões letras
-    buttonA.addEventListener('click', () => {
-        inputNumber.value += buttonA2.value;
-    });
-    
-    buttonB.addEventListener('click', () => {
-        inputNumber.value += buttonB2.value;
-    });
-    
-    buttonC.addEventListener('click', () => {
-        inputNumber.value += buttonC2.value;
-    });
-    
-    buttonD.addEventListener('click', () => {
-        inputNumber.value += buttonD2.value;
-    });
-    
-    buttonE.addEventListener('click', () => {
-        inputNumber.value += buttonE2.value;
-    });
-    
-    buttonF.addEventListener('click', () => {
-        inputNumber.value += buttonF2.value;
-    });
-
-    // Botões segundo container
-    numero01.addEventListener('click', () => {
-        inputNumber2.value += numero01.value
-    })
-    
-    numero02.addEventListener('click', () => {
-        inputNumber2.value += numero02.value
-    })
-
-    numero03.addEventListener('click', () => {
-        inputNumber2.value += numero03.value
-    })
-
-    numero04.addEventListener('click', () => {
-        inputNumber2.value += numero04.value
-    })
-
-    numero05.addEventListener('click', () => {
-        inputNumber2.value += numero05.value
-    })
-
-    numero06.addEventListener('click', () => {
-        inputNumber2.value += numero06.value
-    })
-
-    numero07.addEventListener('click', () => {
-        inputNumber2.value += numero07.value
-    })
-
-    numero08.addEventListener('click', () => {
-        inputNumber2.value += numero08.value
-    })
-
-    numero09.addEventListener('click', () => {
-        inputNumber2.value += numero09.value
-    })
-
-    numero00.addEventListener('click', () => {
-        inputNumber2.value += numero00.value
-    })
-// Botões de letras
-    buttonA2.addEventListener('click', () => {
-        inputNumber2.value += buttonA2.value;
-    });
-    
-    buttonB2.addEventListener('click', () => {
-        inputNumber2.value += buttonB2.value;
-    });
-    
-    buttonC2.addEventListener('click', () => {
-        inputNumber2.value += buttonC2.value;
-    });
-    
-    buttonD2.addEventListener('click', () => {
-        inputNumber2.value += buttonD2.value;
-    });
-    
-    buttonE2.addEventListener('click', () => {
-        inputNumber2.value += buttonE2.value;
-    });
-    
-    buttonF2.addEventListener('click', () => {
-        inputNumber2.value += buttonF2.value;
-    });
 
 
     function disableButtons(value) {
@@ -341,6 +235,7 @@
 
 
     function converter(){ 
+        // Teste para converter com toString
         // var binario1 = number.toString(2)
         // var binario2 = number2.toString(2)
         // var octal1 = number.toString(8)
@@ -350,10 +245,20 @@
 
         if(selectResult.value === "2" && selectCalculo.value === "soma"){
             somar()
-        }else if (selectResult.value === "2" && selectCalculo.value === "subtracao"){
-            subtrair()
         }else if(selectResult.value === "8" && selectCalculo.value === "soma"){
             somar()
+        }else if(selectResult.value === "10" && selectCalculo.value === "soma"){
+            somar()
+        }else if(selectResult.value === "16" && selectCalculo.value === "soma"){
+            somar()
+        }else if (selectResult.value === "2" && selectCalculo.value === "subtracao"){
+            subtrair()
+        }else if(selectResult.value === "8" && selectCalculo.value === "subtracao"){
+            subtrair()
+        }else if(selectResult.value === "10" && selectCalculo.value === "subtracao"){
+            subtrair()
+        }else if(selectResult.value === "16" && selectCalculo.value === "subtracao"){
+            subtrair()
         }
     }
 
@@ -361,9 +266,31 @@
 
     function somar(){
 
+        const inputNum = inputNumber.value.trim(); 
+        const inputNum2 = inputNumber2.value.trim();
+
         if(selectResult.value === "2" && selectCalculo.value === "soma"){
-            const num1 = parseInt(inputNumber.value, 2)
-            const num2 = parseInt(inputNumber2.value, 2)
+            let num1, num2
+            if (selectUser1.value === "8") {
+                num1 = parseInt(inputNum, 8); 
+            } else if (selectUser1.value === "10") {
+                num1 = parseInt(inputNum, 10);
+            } else if (selectUser1.value === "16") {
+                num1 = parseInt(inputNum, 16); 
+            } else if (selectUser1.value === "2") {
+                num1 = parseInt(inputNum, 2); 
+            }
+
+            if (selectUser2.value === "8") {
+                num2 = parseInt(inputNum2, 8); 
+            } else if (selectUser2.value === "10") {
+                num2 = parseInt(inputNum2, 10);
+            } else if (selectUser2.value === "16") {
+                num2 = parseInt(inputNum2, 16); 
+            } else if (selectUser2.value === "2") {
+                num2 = parseInt(inputNum2, 2); 
+            }
+
 
             const result =  (num1 + num2 )
 
@@ -373,20 +300,112 @@
             p.textContent = `Resultado da soma: ${result.toString(2)}`
             div.appendChild(p)
             centerField.appendChild(div)
+
+        }
+         if(selectResult.value === "8" && selectCalculo.value === "soma"){
+
+            let num1, num2
+
+            console.log(num1)
+            if (selectUser1.value === "8") {
+                console.log('valor foi convertido para decimal')
+                num1 = parseInt(inputNum, 8); 
+            } else if (selectUser1.value === "10") {
+                num1 = parseInt(inputNum, 10);
+            } else if (selectUser1.value === "16") {
+                num1 = parseInt(inputNum, 16); 
+            } else if (selectUser1.value === "2") {
+                num1 = parseInt(inputNum, 2); 
+            }
+    
+            if (selectUser2.value === "8") {
+                num2 = inputNum2
+            } else if (selectUser2.value === "10") {
+                num2 = parseInt(inputNum2, 10);
+            } else if (selectUser2.value === "16") {
+                num2 = parseInt(inputNum2, 16); 
+            } else if (selectUser2.value === "2") {
+                num2 = parseInt(inputNum2, 2); 
+            }
+    
+            // Deveria calcular o resultado e exibir em octal
+            const result = num1 + num2;
+            let div = document.getElementById('resultContainer');
+            div.className = 'resultField';
+            let p = document.createElement('p');
+            p.textContent = `Resultado da soma: ${result.toString(8)}`;
+            div.appendChild(p);
+            centerField.appendChild(div);
         }
 
-        if(selectResult.value === "8" && selectCalculo.value === "soma"){
-            const num1 = parseInt(inputNumber.value, 8)
-            const num2 = parseInt(inputNumber2.value, 8)
+        if(selectResult.value === "10" && selectCalculo.value === "soma"){
 
-            const result =  (num1 + num2 )
+            let num1, num2
 
-            let div = document.getElementById('resultContainer')
-            div.className = 'resultField'
-            let p = document.createElement('p')
-            p.textContent = `Resultado da soma: ${result.toString(8)}`
-            div.appendChild(p)
-            centerField.appendChild(div)
+            console.log(num1)
+            if (selectUser1.value === "8") {
+                console.log('valor foi convertido para decimal')
+                num1 = parseInt(inputNum, 8); 
+            } else if (selectUser1.value === "10") {
+                num1 = parseInt(inputNum, 10);
+            } else if (selectUser1.value === "16") {
+                num1 = parseInt(inputNum, 16); 
+            } else if (selectUser1.value === "2") {
+                num1 = parseInt(inputNum, 2); 
+            }
+    
+            if (selectUser2.value === "8") {
+                num2 = inputNum2
+            } else if (selectUser2.value === "10") {
+                num2 = parseInt(inputNum2, 10);
+            } else if (selectUser2.value === "16") {
+                num2 = parseInt(inputNum2, 16); 
+            } else if (selectUser2.value === "2") {
+                num2 = parseInt(inputNum2, 2); 
+            }
+    
+            const result = num1 + num2;
+            let div = document.getElementById('resultContainer');
+            div.className = 'resultField';
+            let p = document.createElement('p');
+            p.textContent = `Resultado da soma: ${result.toString(10)}`;
+            div.appendChild(p);
+            centerField.appendChild(div);
+        }
+
+        if(selectResult.value === "16" && selectCalculo.value === "soma"){
+
+            let num1, num2
+
+            console.log(num1)
+            if (selectUser1.value === "8") {
+                console.log('valor foi convertido para decimal')
+                num1 = parseInt(inputNum, 8); 
+            } else if (selectUser1.value === "10") {
+                num1 = parseInt(inputNum, 10);
+            } else if (selectUser1.value === "16") {
+                num1 = parseInt(inputNum, 16); 
+            } else if (selectUser1.value === "2") {
+                num1 = parseInt(inputNum, 2); 
+            }
+    
+            if (selectUser2.value === "8") {
+                num2 = inputNum2
+            } else if (selectUser2.value === "10") {
+                num2 = parseInt(inputNum2, 10);
+            } else if (selectUser2.value === "16") {
+                num2 = parseInt(inputNum2, 16); 
+            } else if (selectUser2.value === "2") {
+                num2 = parseInt(inputNum2, 2); 
+            }
+    
+            const result = num1 + num2;
+            let div = document.getElementById('resultContainer');
+            div.className = 'resultField';
+            let p = document.createElement('p');
+            p.textContent = `Resultado da soma: ${result.toString(16)}`;
+            div.appendChild(p);
+            centerField.appendChild(div);
         }
         
     }
@@ -428,10 +447,15 @@
             p.textContent = `Resultado da subtração: ${result.toString(2)}`
             div.appendChild(p)
             centerField.appendChild(div)
-        }else if(selectResult.value === "8" && selectCalculo.value === "subtracao"){
+
+        }
+         if(selectResult.value === "8" && selectCalculo.value === "subtracao"){
 
             let num1, num2
+
+            console.log(num1)
             if (selectUser1.value === "8") {
+                console.log('valor foi convertido para decimal')
                 num1 = parseInt(inputNum, 8); 
             } else if (selectUser1.value === "10") {
                 num1 = parseInt(inputNum, 10);
@@ -442,7 +466,42 @@
             }
     
             if (selectUser2.value === "8") {
-                num2 = parseInt(inputNum2, 8); 
+                num2 = inputNum2
+            } else if (selectUser2.value === "10") {
+                num2 = parseInt(inputNum2, 10);
+            } else if (selectUser2.value === "16") {
+                num2 = parseInt(inputNum2, 16); 
+            } else if (selectUser2.value === "2") {
+                num2 = parseInt(inputNum2, 2); 
+            }
+
+            const result = num1 - num2;
+            let div = document.getElementById('resultContainer');
+            div.className = 'resultField';
+            let p = document.createElement('p');
+            p.textContent = `Resultado da subtração: ${result.toString(8)}`;
+            div.appendChild(p);
+            centerField.appendChild(div);
+        }
+
+        if(selectResult.value === "10" && selectCalculo.value === "subtracao"){
+
+            let num1, num2
+
+            console.log(num1)
+            if (selectUser1.value === "8") {
+                console.log('valor foi convertido para decimal')
+                num1 = parseInt(inputNum, 8); 
+            } else if (selectUser1.value === "10") {
+                num1 = parseInt(inputNum, 10);
+            } else if (selectUser1.value === "16") {
+                num1 = parseInt(inputNum, 16); 
+            } else if (selectUser1.value === "2") {
+                num1 = parseInt(inputNum, 2); 
+            }
+    
+            if (selectUser2.value === "8") {
+                num2 = inputNum2
             } else if (selectUser2.value === "10") {
                 num2 = parseInt(inputNum2, 10);
             } else if (selectUser2.value === "16") {
@@ -456,7 +515,43 @@
             let div = document.getElementById('resultContainer');
             div.className = 'resultField';
             let p = document.createElement('p');
-            p.textContent = `Resultado da subtração (octal): ${result.toString(8)}`;
+            p.textContent = `Resultado da subtração: ${result.toString(10)}`;
+            div.appendChild(p);
+            centerField.appendChild(div);
+        }
+
+        if(selectResult.value === "16" && selectCalculo.value === "subtracao"){
+
+            let num1, num2
+
+            console.log(num1)
+            if (selectUser1.value === "8") {
+                console.log('valor foi convertido para decimal')
+                num1 = parseInt(inputNum, 8); 
+            } else if (selectUser1.value === "10") {
+                num1 = parseInt(inputNum, 10);
+            } else if (selectUser1.value === "16") {
+                num1 = parseInt(inputNum, 16); 
+            } else if (selectUser1.value === "2") {
+                num1 = parseInt(inputNum, 2); 
+            }
+    
+            if (selectUser2.value === "8") {
+                num2 = inputNum2
+            } else if (selectUser2.value === "10") {
+                num2 = parseInt(inputNum2, 10);
+            } else if (selectUser2.value === "16") {
+                num2 = parseInt(inputNum2, 16); 
+            } else if (selectUser2.value === "2") {
+                num2 = parseInt(inputNum2, 2); 
+            }
+    
+            // Deveria calcular o resultado e exibir em octal
+            const result = num1 - num2;
+            let div = document.getElementById('resultContainer');
+            div.className = 'resultField';
+            let p = document.createElement('p');
+            p.textContent = `Resultado da subtração: ${result.toString(16)}`;
             div.appendChild(p);
             centerField.appendChild(div);
         }
