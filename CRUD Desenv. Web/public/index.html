@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Contato</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="formContainer">
+    <h1 class="h1-main">CRUD Desenvolvimento Web</h1>
+
+    <form action="/adicionarOuAtualizarContato" method="post" class="formContato" id="formContato">
+      <h2 class="h2-main">Novo Contato</h2>
+
+      <label for="nomeContato">Nome:</label>
+      <input type="text" name="nomeContato" id="nomeContato" class="inp" required><br>
+
+      <label for="foneContato">Telefone:</label>
+      <input type="tel" name="foneContato" id="foneContato" class="inp" required><br>
+
+      <button type="submit" name="acao" value="adicionar" class="addContatoBtn">Adicionar Contato</button>
+      <button id="listarContatosBtn" type="button" class="listarContatoBtn">Listar Contatos</button>
+
+
+    </form>
+    <div class="listContainer">
+      <h1>Contatos Salvos</h1>
+      <ul id="listaContatos"></ul>
+    </div>
+
+
+  </div>
+</body>
+<script src="./script.js"></script>
+
+</html>

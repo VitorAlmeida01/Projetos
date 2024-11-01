@@ -1,0 +1,11 @@
+CREATE DATABASE dbcontato;
+
+use dbcontato;
+
+CREATE TABLE contatos (
+ codigoContato INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ nomeContato VARCHAR(50) NOT NULL,
+ foneContato VARCHAR(20) NOT NULL UNIQUE
+)
+
+SELECT * FROM contatos;
