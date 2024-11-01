@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Vintage Calculator</h1>
+    </div>
+
+    <div class="mainContainer">
+        <div class="box">
+            <div class="inputs">
+                <label>Digite um número</label>
+                <input type="text" id="inpNumber">
+                <select name="" id="sltUser1">
+                    <option value="1">Selecione</option>
+                    <option value="2">Binario</option>
+                    <option value="8">Octal</option>
+                    <option value="10">Decimal</option>
+                    <option value="16">Hexadecimal</option>
+                </select>
+            </div>
+
+            <div class="buttons" id="btnContainer">
+                <button id="btnNum1" class="numero1" value="1">1</button>
+                <button id="btnNum2" class="numero1" value="2">2</button>
+                <button id="btnNum3" class="numero1" value="3">3</button>
+                <button id="btnNum4" class="numero1" value="4">4</button>
+                <button id="btnNum5" class="numero1" value="5">5</button>
+                <button id="btnNum6" class="numero1" value="6">6</button>
+                <button id="btnNum7" class="numero1" value="7">7</button>
+                <button id="btnNum8" class="numero1" value="8">8</button>
+                <button id="btnNum9" class="numero1" value="9">9</button>
+                <button id="btnNum0" class="numero1" value="0">0</button>
+                <button id="btnNumA" class="numero1" value="A">A</button>
+                <button id="btnNumB" class="numero1" value="B">B</button>
+                <button id="btnNumC" class="numero1" value="C">C</button>
+                <button id="btnNumD" class="numero1" value="D">D</button>
+                <button id="btnNumE" class="numero1" value="E">E</button>
+                <button id="btnNumF" class="numero1" value="F">F</button>
+                <button id="clearButton"> <- </button>
+                        <button onclick="clean1()">Clear</button>
+            </div>
+        </div>
+
+        <div class="centerField" id="centerContainer">
+            <label>Operação</label>
+            <select name="sltCalculo" id="sltCalculo">
+                <option value="selecione">Selecione</option>
+                <option value="soma">Somar</option>
+                <option value="subtracao">Subtrair</option>
+            </select>
+            <label>Tipo</label>
+            <select name="" id="sltResult">
+                <option value="selecione">Selecione</option>
+                <option value="2">Binario</option>
+                <option value="8">Octal</option>
+                <option value="10">Decimal</option>
+                <option value="16">Hexadecimal</option>
+            </select>
+            <button onclick="converter()">=</button>
+
+            <div id="resultContainer"></div>
+        </div>
+
+        <div class="box">
+            <div class="inputs">
+                <label>Digite um número</label>
+                <input type="text" id="inpNumber2">
+                <select name="" id="sltUser2">
+                    <option value="1">Selecione</option>
+                    <option value="2">Binario</option>
+                    <option value="8">Octal</option>
+                    <option value="10">Decimal</option>
+                    <option value="16">Hexadecimal</option>
+                </select>
+            </div>
+
+            <div class="buttons">
+                <button id="btnNum1.2" class="numero2" value="1">1</button>
+                <button id="btnNum2.2" class="numero2" value="2">2</button>
+                <button id="btnNum3.2" class="numero2" value="3">3</button>
+                <button id="btnNum4.2" class="numero2" value="4">4</button>
+                <button id="btnNum5.2" class="numero2" value="5">5</button>
+                <button id="btnNum6.2" class="numero2" value="6">6</button>
+                <button id="btnNum7.2" class="numero2" value="7">7</button>
+                <button id="btnNum8.2" class="numero2" value="8">8</button>
+                <button id="btnNum9.2" class="numero2" value="9">9</button>
+                <button id="btnNum0.2" class="numero2" value="0">0</button>
+                <button id="btnNumA.2" class="numero2" value="A">A</button>
+                <button id="btnNumB.2" class="numero2" value="B">B</button>
+                <button id="btnNumC.2" class="numero2" value="C">C</button>
+                <button id="btnNumD.2" class="numero2" value="D">D</button>
+                <button id="btnNumE.2" class="numero2" value="E">E</button>
+                <button id="btnNumF.2" class="numero2" value="F">F</button>
+                <button id="clearButton2"> <- </button>
+                        <button onclick="clean2()">Clear</button>
+            </div>
+
+
+        </div>
+
+</body>
+
+</html>
